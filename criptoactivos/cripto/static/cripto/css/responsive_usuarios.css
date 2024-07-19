@@ -1,0 +1,96 @@
+/* General styles for the users table */
+.container {
+  max-width: 1200px;
+  margin: 90px auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table-responsive {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.table th, .table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-dark th {
+  background-color: #343a40;
+  color: white;
+}
+
+.table-dark tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.5);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination .step-links {
+  display: flex;
+  list-style: none;
+}
+
+.pagination .step-links a,
+.pagination .step-links span {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #007bff;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.pagination .step-links .current {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsive styles for the users table */
+@media (max-width: 768px) {
+  .container {
+      padding: 10px;
+  }
+
+  h2 {
+      font-size: 24px;
+  }
+
+  .table {
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+  }
+
+  .table th, .table td {
+      font-size: 14px;
+      padding: 8px;
+  }
+
+  .pagination .step-links a,
+  .pagination .step-links span {
+      margin: 0 2px;
+      padding: 5px 8px;
+      font-size: 14px;
+  }
+}

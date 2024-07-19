@@ -1,0 +1,19 @@
+<!-- cripto/templates/cripto/restablecer_contrasena.html -->
+{% extends 'cripto/base.html' %}
+{% load static %}
+
+{% block title %}Restablecer Contraseña{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Restablecer Contraseña</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="new_password">Nueva Contraseña</label>
+            <input type="password" id="new_password" name="new_password" required>
+        </div>
+        <button class="form-submit-btn" type="submit">Restablecer</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+/* Estilos específicos para la página de Mis Compras */
+.mis-compras-container {
+    max-width: 1200px;
+    margin: 90px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mis-compras-container h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.mis-compras-container .table-responsive {
+    overflow-x: auto; /* Allows horizontal scroll */
+}
+
+.mis-compras-container .table {
+    width: 100%;
+    margin: auto;
+}
+
+.mis-compras-container .table th, 
+.mis-compras-container .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mis-compras-container .table-dark th {
+    background-color: #343a40;
+    color: white;
+}
+
+.mis-compras-container .table-dark tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.5);
+}
+
+/* Responsive styles for the purchases table */
+@media (max-width: 768px) {
+    .mis-compras-container {
+        padding: 10px;
+    }
+
+    .mis-compras-container h2 {
+        font-size: 24px;
+    }
+
+    .mis-compras-container .table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap; /* Prevents table cells from wrapping */
+    }
+
+    .mis-compras-container .table th, 
+    .mis-compras-container .table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

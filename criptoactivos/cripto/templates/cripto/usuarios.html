@@ -1,0 +1,65 @@
+{% extends 'cripto/base.html' %}
+{% load static %}
+
+{% block title %}Administrar Usuarios{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'cripto/css/responsive_usuarios.css' %}">
+<div class="container mt-5">
+    <h2>Administrar Usuarios</h2>
+
+    <form method="GET" action="{% url 'usuarios' %}" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Buscar por nombre, apellido o correo" value="{{ request.GET.search }}">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in page_obj %}
+                <tr>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a href="{% url 'editar_usuario' user.id %}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{% url 'eliminar_usuario' user.id %}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar</a>
+                        <a href="{% url 'restablecer_contrasena' user.id %}" class="btn btn-warning btn-sm">Restablecer Contraseña</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; primero</a>
+                <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">próxima</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">última &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}
